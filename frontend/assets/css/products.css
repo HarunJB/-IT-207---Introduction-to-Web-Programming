@@ -227,7 +227,6 @@
     border-color: var(--primary);
   }
   
-  /* Responsive Adjustments */
   @media (max-width: 768px) {
     .sub-hero h1 {
       font-size: 1.75rem;

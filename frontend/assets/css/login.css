@@ -201,7 +201,6 @@
     color: white;
   }
   
-  /* Responsive Adjustments */
   @media (max-width: 767.98px) {
     .login-benefits {
       margin-top: 30px;
