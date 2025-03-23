@@ -1,0 +1,376 @@
+.sub-hero {
+  background-color: var(--hero-bg);
+  color: white;
+  padding: 40px 0;
+  margin-bottom: 40px;
+}
+
+.sub-hero h1 {
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.sub-hero-text {
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+.flash-sale-banner {
+  background: linear-gradient(135deg, #6e44ff 0%, #a560ff 100%);
+  color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 50px;
+  box-shadow: 0 10px 25px rgba(110, 68, 255, 0.2);
+}
+
+.flash-sale-content {
+  padding: 40px;
+  text-align: center;
+}
+
+.sale-badge {
+  display: inline-block;
+  background-color: #ff3e3e;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.flash-sale-banner h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.flash-sale-banner p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.countdown-item {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 0 5px;
+  min-width: 80px;
+}
+
+.countdown-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.countdown-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.btn-shop-now {
+  padding: 12px 35px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.deal-categories {
+  padding-bottom: 50px;
+}
+
+.deal-category-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  height: 250px;
+  transition: transform 0.3s;
+}
+
+.deal-category-card:hover {
+  transform: translateY(-5px);
+}
+
+.category-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--primary);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.category-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 20px;
+  color: white;
+}
+
+.category-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+/* Special Offers */
+.special-offers {
+  padding: 50px 0;
+}
+
+.offer-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  transition: transform 0.3s;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+}
+
+.offer-image {
+  height: 180px;
+  overflow: hidden;
+}
+
+.offer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.offer-info {
+  padding: 15px;
+}
+
+.offer-info h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  min-height: 2.5rem;
+}
+
+.offer-info p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  min-height: 40px;
+}
+
+.price-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.original-price {
+  font-size: 0.9rem;
+  color: #999;
+  text-decoration: line-through;
+  margin-left: 10px;
+}
+
+.coupon-section {
+  background: linear-gradient(to right, #2b2d42, #4a4e69);
+  color: white;
+  padding: 40px 0;
+  margin: 50px 0;
+}
+
+.coupon-section h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.coupon-section p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.coupon-section .btn {
+  border-radius: 0 4px 4px 0;
+  font-weight: 600;
+}
+
+.coupon-section .form-control {
+  border-radius: 4px 0 0 4px;
+  font-size: 1rem;
+  padding: 12px 20px;
+}
+
+.limited-offers {
+  padding-bottom: 50px;
+}
+
+.limited-offer-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.limited-offer-card:hover {
+  transform: translateY(-5px);
+}
+
+.limited-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff3e3e;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.limited-offer-card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.limited-offer-card p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.stock-status {
+  font-size: 0.8rem;
+  color: #ff3e3e;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.combo-deals {
+  padding: 50px 0;
+  background-color: var(--light-bg);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.combo-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  transition: transform 0.3s;
+}
+
+.combo-card:hover {
+  transform: translateY(-5px);
+}
+
+.combo-card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.combo-items {
+  margin-bottom: 20px;
+}
+
+.combo-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.combo-pricing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.combo-save {
+  color: #28a745;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .flash-sale-banner h2 {
+    font-size: 1.8rem;
+  }
+  
+  .countdown-item {
+    padding: 8px 12px;
+    min-width: 60px;
+  }
+  
+  .countdown-value {
+    font-size: 1.5rem;
+  }
+  
+  .limited-offer-card .row {
+    flex-direction: column;
+  }
+  
+  .limited-offer-card .col-md-5 {
+    margin-bottom: 15px;
+  }
+  
+  .offer-info h4, 
+  .offer-info p {
+    min-height: auto;
+  }
+}

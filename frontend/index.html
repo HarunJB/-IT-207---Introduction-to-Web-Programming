@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC MASTER - Gaming PC Store</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/spapp.css">
+  <link rel="stylesheet" href="assets/css/build-your-PC.css">
+  <link rel="stylesheet" href="assets/css/deals.css">
+  <link rel="stylesheet" href="assets/css/support.css">
+  <link rel="stylesheet" href="assets/css/products.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/sign-up.css">
+  <link rel="stylesheet" href="assets/css/login.css">
+  <link rel="stylesheet" href="assets/css/shopping-cart.css"> 
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#home">PC MASTER</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#deals">Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#build-your-pc">Build Your PC</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#support">Support</a>
+          </li>
+        </ul>
+        <div class="cart-icon">
+          <a href="#cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cart-item-count">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="spapp" role="main">
+
+    <section id="home" data-load="home.html"></section>
+    
+    <section id="products" data-load="products.html"></section>
+    
+    <section id="deals" data-load="deals.html"></section>
+    
+    <section id="build-your-pc" data-load="build-your-pc.html"></section>
+    
+    <section id="support" data-load="support.html"></section>
+
+    <section id="signup" data-load="sign-up.html"></section>
+
+    <section id="login" data-load="login.html"></section>
+
+    <section id="cart" data-load="shopping-cart.html"></section>
+    
+    <section id="error_404">
+      <div class="container py-5 text-center">
+        <div class="error-container">
+          <h1 class="display-1 text-danger">404</h1>
+          <h2 class="mb-4">Page Not Found</h2>
+          <p class="lead mb-4">Sorry, the page you're looking for doesn't exist or has been moved.</p>
+          <a href="#home" class="btn btn-primary">Return to Home Page</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 col-6 mb-4">
+          <h5>PC MASTER</h5>
+          <ul>
+            <li><a href="#" class="footer-link">About Us</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+            <li><a href="#" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-6 mb-4">
+          <h5>HELP</h5>
+          <ul>
+            <li><a href="#" class="footer-link">FAQs</a></li>
+            <li><a href="#" class="footer-link">Shipping</a></li>
+            <li><a href="#" class="footer-link">Returns</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-6 mb-4">
+          <h5>POLICIES</h5>
+          <ul>
+            <li><a href="#" class="footer-link">Terms of Service</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link">Warranty</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-6 mb-4">
+          <h5>CONNECT</h5>
+          <ul>
+            <li><a href="#" class="footer-link">Facebook</a></li>
+            <li><a href="#" class="footer-link">Instagram</a></li>
+            <li><a href="#" class="footer-link">Discord</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>CONTACT</h5>
+          <ul>
+            <li><a href="mailto:support@pcmaster.com" class="footer-link">support@pcmaster.com</a></li>
+            <li><a href="tel:1-800-PC-MASTER" class="footer-link">1-800-PC-MASTER</a></li>
+            <li><a href="#" class="footer-link">Live Chat</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 PC MASTER. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/jquery.spapp.min.js"></script>
+  <script src="assets/js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+:root {
+    --primary: #6e44ff;
+    --dark: #222;
+    --hero-bg: #2b2d42;
+    --light-bg: #f5f5f7;
+    --gray-bg: #f0f0f0;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--light-bg);
+  }
+  
+  .navbar {
+    background-color: var(--dark) !important;
+    padding: 15px 0;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .nav-link {
+    color: white !important;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin: 0 10px;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary) !important;
+  }
+  
+  .cart-icon {
+    position: relative;
+  }
+  
+  .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #6c5ce7;
+    color: white;
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero {
+    background-color: var(--hero-bg);
+    color: white;
+    padding: 60px 0;
+  }
+  
+  .hero h1 {
+    font-weight: bold;
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    color: #ccc;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .btn-signup {
+    background-color: var(--primary);
+    border: none;
+    padding: 10px 30px;
+  }
+  
+  .btn-login {
+    border: 2px solid white;
+    padding: 10px 30px;
+    margin-left: 10px;
+  }
+  
+  .hero-image {
+    background-color: #444;
+    border-radius: 10px;
+    height: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .pc-monitor {
+    width: 80%;
+    height: 65%;
+    background-color: #222;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .pc-screen {
+    width: 85%;
+    height: 80%;
+    background-color: var(--primary);
+    border-radius: 2px;
+    position: relative;
+  }
+  
+  .pc-base {
+    width: 60%;
+    height: 10%;
+    background-color: #333;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 40px;
+  }
+  
+  .pc-stand {
+    width: 40%;
+    height: 15%;
+    background-color: #333;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 15px;
+  }
+  
+  .rgb-light {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    left: 10px;
+  }
+  
+  .rgb-red {
+    background-color: #ff5e5b;
+    top: 20%;
+  }
+  
+  .rgb-green {
+    background-color: #00ff00;
+    top: 40%;
+  }
+  
+  .rgb-blue {
+    background-color: #00a6fb;
+    top: 60%;
+  }
+  
+  .section-title {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+  
+  .featured-section {
+    background-color: white;
+    padding: 40px 0;
+  }
+  
+  .category-section {
+    background-color: var(--gray-bg);
+    padding: 40px 0;
+  }
+  
+  .category-card {
+    background-color: white;
+    border-radius: 5px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .why-us-section {
+    background-color: white;
+    padding: 40px 0;
+  }
+  
+  .why-us-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .why-us-icon {
+    background-color: var(--primary);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+  }
+  
+  .newsletter {
+    background-color: var(--hero-bg);
+    color: white;
+    padding: 40px 0;
+  }
+  
+  .btn-subscribe {
+    background-color: var(--primary);
+    border: none;
+  }
+  
+  .footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 40px 0 20px;
+  }
+  
+  .footer h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .footer ul {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .footer-link {
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  
+  .footer-link:hover {
+    color: var(--primary);
+  }
+  
+  .copyright {
+    color: #777;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+  }
+  
+  .product-card {
+    background-color: #eee;
+    border-radius: 5px;
+    height: 80px;
+    margin-bottom: 10px;
+  }

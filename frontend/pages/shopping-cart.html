@@ -1,0 +1,131 @@
+<section class="sub-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1>YOUR CART</h1>
+          <p class="sub-hero-text">Review and manage your selected items</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cart-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="cart-items-container">
+            <div class="cart-items-table">
+              <div class="cart-header">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3>Product</h3>
+                  </div>
+                  <div class="col-md-2 text-center">
+                    <h3>Price</h3>
+                  </div>
+                  <div class="col-md-2 text-center">
+                    <h3>Quantity</h3>
+                  </div>
+                  <div class="col-md-2 text-center">
+                    <h3>Total</h3>
+                  </div>
+                </div>
+              </div>
+              
+              <div id="cart-items">
+                <div id="empty-cart-message" class="text-center py-5">
+                  <i class="fas fa-shopping-cart empty-cart-icon"></i>
+                  <h3>Your cart is empty</h3>
+                  <p>Looks like you haven't added any items to your cart yet.</p>
+                  <a href="#products" class="btn btn-primary mt-3">Browse Products</a>
+                </div>
+                
+                <div class="cart-item" id="cart-item-template" style="display: none;">
+                  <div class="row align-items-center">
+                    <div class="col-md-6 cart-product-info">
+                      <div class="d-flex align-items-center">
+                        <div class="cart-product-image">
+                          <img src="" alt="Product Image">
+                        </div>
+                        <div class="cart-product-details">
+                          <h4 class="cart-product-title"></h4>
+                          <p class="cart-product-specs"></p>
+                          <button class="btn-remove">Remove</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                      <div class="cart-product-price"></div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                      <div class="quantity-control">
+                        <button class="btn-decrease">-</button>
+                        <input type="number" class="quantity-input" min="1" value="1">
+                        <button class="btn-increase">+</button>
+                      </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                      <div class="cart-product-total"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="cart-actions">
+              <div class="row">
+                <div class="col-md-6">
+                  <a href="#products" class="btn btn-outline-primary">Continue Shopping</a>
+                </div>
+                <div class="col-md-6 text-end">
+                  <button id="clear-cart" class="btn btn-outline-danger">Clear Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4">
+          <div class="cart-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-item">
+              <span>Subtotal</span>
+              <span id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="summary-item">
+              <span>Shipping</span>
+              <span id="cart-shipping">$0.00</span>
+            </div>
+            <div class="summary-item">
+              <span>Tax</span>
+              <span id="cart-tax">$0.00</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-item total">
+              <span>Total</span>
+              <span id="cart-total">$0.00</span>
+            </div>
+            
+            <div class="promo-section">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Promo code">
+                <button class="btn btn-apply" type="button">Apply</button>
+              </div>
+            </div>
+            
+            <button id="checkout-button" class="btn btn-primary btn-checkout">Proceed to Checkout</button>
+            
+            <div class="payment-methods">
+              <p>We Accept:</p>
+              <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

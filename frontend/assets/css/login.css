@@ -1,0 +1,220 @@
+.sub-hero {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 60px 0;
+    margin-bottom: 40px;
+  }
+  
+  .sub-hero h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .sub-hero-text {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .login-section {
+    padding: 40px 0;
+  }
+  
+  .login-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 30px;
+  }
+  
+  .login-form-container {
+    padding: 15px;
+  }
+  
+  .login-form-container h2 {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .login-subtext {
+    color: #666;
+    margin-bottom: 25px;
+  }
+  
+  .form-label {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .btn-login-form {
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    background-color: #6c5ce7;
+    border: none;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .btn-login-form:hover {
+    background-color: #5b4bc9;
+    transform: translateY(-2px);
+  }
+  
+  .forgot-password-link {
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+  }
+  
+  .forgot-password-link a {
+    color: #6c5ce7;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .forgot-password-link a:hover {
+    text-decoration: underline;
+  }
+  
+  .signup-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+  }
+  
+  .signup-link a {
+    color: #6c5ce7;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
+  .login-benefits {
+    background-color: #6c5ce7;
+    padding: 30px 20px;
+    height: 100%;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .login-benefits h3 {
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .benefits-list li {
+    display: flex;
+    margin-bottom: 25px;
+  }
+  
+  .benefit-icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+  
+  .benefit-icon i {
+    color: white;
+    font-size: 1.3rem;
+  }
+  
+  .benefit-text h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .benefit-text p {
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.9;
+  }
+  
+  .login-support {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    margin-top: 50px;
+  }
+  
+  .support-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+  
+  .support-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #e6f2ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+  }
+  
+  .support-icon i {
+    color: #6c5ce7;
+    font-size: 1.8rem;
+  }
+  
+  .support-content h3 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .support-content p {
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .btn-outline-primary {
+    color: #6c5ce7;
+    border-color: #6c5ce7;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #6c5ce7;
+    color: white;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 767.98px) {
+    .login-benefits {
+      margin-top: 30px;
+    }
+    
+    .support-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .support-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+  }

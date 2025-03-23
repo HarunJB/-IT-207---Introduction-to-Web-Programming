@@ -1,0 +1,228 @@
+.sub-hero {
+    background-color: var(--hero-bg);
+    color: white;
+    padding: 40px 0;
+    margin-bottom: 40px;
+  }
+  
+  .sub-hero h1 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .sub-hero-text {
+    color: #ccc;
+    font-size: 1.1rem;
+  }
+  
+  /* Sign Up Section */
+  .signup-section {
+    padding-bottom: 60px;
+  }
+  
+  .signup-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  
+  /* Form Side */
+  .signup-form-container {
+    padding: 40px;
+  }
+  
+  .signup-form-container h2 {
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--dark);
+  }
+  
+  .signup-subtext {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+  
+  .form-label {
+    font-weight: 500;
+    color: #444;
+  }
+  
+  .form-control {
+    padding: 12px 15px;
+    border-color: #ddd;
+    border-radius: 6px;
+  }
+  
+  .form-control:focus {
+    box-shadow: 0 0 0 3px rgba(110, 68, 255, 0.25);
+    border-color: var(--primary);
+  }
+  
+  .password-requirements {
+    margin-top: 5px;
+    color: #777;
+  }
+  
+  .btn-signup-form {
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    background-color: var(--primary);
+    border: none;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-signup-form:hover {
+    background-color: #5c35e6;
+  }
+  
+  .login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #555;
+  }
+  
+  .login-link a {
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
+  .terms-link {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  
+  .terms-link:hover {
+    text-decoration: underline;
+  }
+  
+  .signup-benefits {
+    background: linear-gradient(135deg, #6e44ff 0%, #a560ff 100%);
+    color: white;
+    padding: 40px 30px;
+    height: 100%;
+  }
+  
+  .signup-benefits h3 {
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    position: relative;
+  }
+  
+  .signup-benefits h3:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: white;
+  }
+  
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .benefits-list li {
+    display: flex;
+    margin-bottom: 25px;
+  }
+  
+  .benefit-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+  
+  .benefit-icon i {
+    font-size: 18px;
+  }
+  
+  .benefit-text h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .benefit-text p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0;
+  }
+  
+  .signup-support {
+    padding: 20px 0 60px;
+  }
+  
+  .support-item {
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    height: 100%;
+  }
+  
+  .support-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+  }
+  
+  .support-icon i {
+    font-size: 24px;
+  }
+  
+  .support-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .support-content p {
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 768px) {
+    .signup-form-container,
+    .signup-benefits {
+      padding: 30px 20px;
+    }
+    
+    .signup-benefits {
+      margin-top: 20px;
+    }
+    
+    .support-item {
+      margin-bottom: 20px;
+    }
+  }
