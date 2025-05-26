@@ -24,6 +24,16 @@ class ProductDao extends BaseDao {
         $stmt->execute();
         return $stmt->fetch();
     }
+
+    public function insert($data) {
+        $existing = $this->getProductBySku($data['sku']);
+        
+        if ($existing) {
+            return false; 
+        }
+        
+        return parent::insert($data);
+    }
     
     public function getProductsByType($type) {
         $stmt = $this->connection->prepare("SELECT * FROM products WHERE type = :type");

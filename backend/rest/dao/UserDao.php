@@ -7,7 +7,23 @@ class UserDao extends BaseDao {
     }
     
     public function createUser($userData) {
-        return $this->insert($userData);
+        // Convert camelCase to snake_case and filter out duplicates
+        $userData = array_combine(
+            array_map(function($key) {
+                return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $key));
+            }, array_keys($userData)),
+            array_values($userData)
+        );
+        
+        // Filter out duplicate fields, keeping only snake_case versions
+        $filteredData = [];
+        foreach ($userData as $key => $value) {
+            if (!in_array($key, ['firstName', 'lastName', 'name'])) {
+                $filteredData[$key] = $value;
+            }
+        }
+        
+        return $this->insert($filteredData);
     }
     
     public function getAllUsers() {

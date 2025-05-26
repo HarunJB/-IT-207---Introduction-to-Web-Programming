@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - PC MASTER</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">PC MASTER</a>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="register.html">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="sub-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1>WELCOME BACK</h1>
+          <p class="sub-hero-text">
+            Sign in to your PC MASTER account
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="login-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+          <div class="login-container">
+            <div class="login-form-container">
+              <h2>Log In</h2>
+              <p class="login-subtext">
+                Access your account to view orders and exclusive deals
+              </p>
+              
+              <form id="login-form">
+                <div class="mb-3">
+                  <label class="form-label">Email Address*</label>
+                  <input type="email" name="email" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Password*</label>
+                  <input type="password" name="password" class="form-control" required />
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe" />
+                  <label class="form-check-label" for="rememberMe">
+                    Remember me
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-login-form">
+                  LOG IN
+                </button>
+              </form>
+              
+              <div class="login-links">
+                <div class="forgot-password">
+                  <a href="#" class="forgot-link">Forgot your password?</a>
+                </div>
+                <div class="signup-link">
+                  Don't have an account? <a href="register.html">Sign Up</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="login-features">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <h3>Secure Login</h3>
+            <p>Your account is protected with industry-standard security measures</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-history"></i>
+            </div>
+            <h3>Order History</h3>
+            <p>View and track all your previous orders and purchases</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <h3>Exclusive Access</h3>
+            <p>Get early access to sales and member-only promotions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js"></script>
+  <script src="utils/constants.js"></script>
+  <script src="services/user-service.js"></script>
+  <script type="text/javascript">
+    UserService.init();
+  </script>
+</body>
+</html>

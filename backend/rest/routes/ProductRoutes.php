@@ -199,6 +199,7 @@ Flight::route('PUT ' . BASE_URL . '/products/@id', function($id) {
  * )
  */
 Flight::route('DELETE ' . BASE_URL . '/products/@id', function($id) {
+    
     try {
         $success = Flight::productService()->deleteProduct($id);
         if (!$success) {

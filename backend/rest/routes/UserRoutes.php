@@ -12,6 +12,7 @@
  * )
  */
 Flight::route('GET ' . BASE_URL . '/users', function() {
+    
     $users = Flight::userService()->getAllUsers();
     foreach ($users as &$user) {
         if (isset($user['password_hash'])) {

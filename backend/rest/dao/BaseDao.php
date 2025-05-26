@@ -1,25 +1,49 @@
 <?php
-require_once 'config.php';
+require_once __DIR__ . "/../config.php";
 
 class BaseDao {
-    protected $table;
-    protected $connection;
-    protected $primary_key;
     
-    public function __construct($table, $primary_key = 'id') {
-        $this->table = $table;
-        $this->primary_key = $primary_key;
-        $this->connection = Database::connect();
+    protected $connection;
+    private $table_name;
+
+    public function __construct($table_name) {
+        $this->table_name = $table_name;
+
+        try {
+            $this->connection = new PDO(
+                "mysql:host=" . Config::DB_HOST() . ";dbname=" . Config::DB_NAME() . ";port=" . Config::DB_PORT(),
+                Config::DB_USER(),
+                Config::DB_PASSWORD(),
+                [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC       
+                ]
+                );
+        } catch(PDOException $exception) {
+            throw $exception;
+        }
+
+    }
+
+    protected function query($query, $params) {
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute($params);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    protected function query_unique($query, $params) {
+        $results = $this->query($query, $params);
+        return reset($result);
     }
     
     public function getAll() {
-        $stmt = $this->connection->prepare("SELECT * FROM " . $this->table);
+        $stmt = $this->connection->prepare("SELECT * FROM " . $this->table_name);
         $stmt->execute();
         return $stmt->fetchAll();
     }
     
     public function getById($id) {
-        $stmt = $this->connection->prepare("SELECT * FROM " . $this->table . " WHERE " . $this->primary_key . " = :id");
+        $stmt = $this->connection->prepare("SELECT * FROM " . $this->table_name . " WHERE " . $this->primary_key . " = :id");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         return $stmt->fetch();
@@ -28,7 +52,7 @@ class BaseDao {
     public function insert($data) {
         $columns = implode(", ", array_keys($data));
         $placeholders = ":" . implode(", :", array_keys($data));
-        $sql = "INSERT INTO " . $this->table . " ($columns) VALUES ($placeholders)";
+        $sql = "INSERT INTO " . $this->table_name . " ($columns) VALUES ($placeholders)";
         $stmt = $this->connection->prepare($sql);
         return $stmt->execute($data);
     }
@@ -39,14 +63,14 @@ class BaseDao {
             $fields .= "$key = :$key, ";
         }
         $fields = rtrim($fields, ", ");
-        $sql = "UPDATE " . $this->table . " SET $fields WHERE " . $this->primary_key . " = :id";
+        $sql = "UPDATE " . $this->table_name . " SET $fields WHERE " . $this->primary_key . " = :id";
         $stmt = $this->connection->prepare($sql);
         $data['id'] = $id;
         return $stmt->execute($data);
     }
     
     public function delete($id) {
-        $stmt = $this->connection->prepare("DELETE FROM " . $this->table . " WHERE " . $this->primary_key . " = :id");
+        $stmt = $this->connection->prepare("DELETE FROM " . $this->table_name . " WHERE " . $this->primary_key . " = :id");
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }

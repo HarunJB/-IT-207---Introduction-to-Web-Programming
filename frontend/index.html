@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="assets/css/sign-up.css">
   <link rel="stylesheet" href="assets/css/login.css">
   <link rel="stylesheet" href="assets/css/shopping-cart.css"> 
+  <link rel="stylesheet" href="assets/css/admin.css">
+
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -38,12 +40,20 @@
           <li class="nav-item">
             <a class="nav-link" href="#support">Support</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link admin-link" href="#admin">Admin</a>
+          </li>
         </ul>
         <div class="cart-icon">
           <a href="#cart">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count" id="cart-item-count">0</span>
           </a>
+        </div>
+        <div class="nav-item ms-3">
+          <button class="btn btn-outline-light" id="logout-btn" style="display: none;">
+            <i class="fas fa-sign-out-alt me-1"></i>Logout
+          </button>
         </div>
       </div>
     </div>
@@ -60,11 +70,15 @@
     <section id="build-your-pc" data-load="build-your-pc.html"></section>
     
     <section id="support" data-load="support.html"></section>
-
-    <section id="signup" data-load="sign-up.html"></section>
-
-    <section id="login" data-load="login.html"></section>
-
+    <section id="admin" style="display: none;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div id="adminContent"></div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section id="cart" data-load="shopping-cart.html"></section>
     
     <section id="error_404">
@@ -133,5 +147,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/jquery.spapp.min.js"></script>
   <script src="assets/js/custom.js"></script>
+
+  <!-- utils -->
+  <script src="utils/constants.js"></script>
+  <script src="utils/rest-client.js"></script>
+  <script src="utils/utils.js"></script>
+
+  <!-- services -->
+  <script src="services/auth-service.js"></script>
+  <script src="services/product-service.js"></script>
+  <script src="services/user-service.js"></script>
+  <script src="services/admin.js"></script>
+  <script type="text/javascript">
+    // Initialize UserService immediately
+    UserService.init();
+  </script>
 </body>
 </html>
