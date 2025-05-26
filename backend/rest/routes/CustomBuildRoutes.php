@@ -12,6 +12,7 @@
  * )
  */
 Flight::route('GET ' . BASE_URL . '/custom-builds', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN, Roles::USER);
     $builds = Flight::customBuildService()->getAllCustomBuilds();
     Flight::json($builds);
 });
@@ -43,6 +44,7 @@ Flight::route('GET ' . BASE_URL . '/custom-builds', function() {
  * )
  */
 Flight::route('GET ' . BASE_URL . '/custom-builds/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $build = Flight::customBuildService()->getCustomBuildById($id);
     if (!$build) {
         Flight::json(['error' => 'Custom build not found'], 404);
@@ -89,6 +91,7 @@ Flight::route('GET ' . BASE_URL . '/custom-builds/@id', function($id) {
  * )
  */
 Flight::route('POST ' . BASE_URL . '/custom-builds', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     try {
         $buildId = Flight::customBuildService()->createCustomBuild($data);
@@ -148,6 +151,7 @@ Flight::route('POST ' . BASE_URL . '/custom-builds', function() {
  * )
  */
 Flight::route('PUT ' . BASE_URL . '/custom-builds/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     try {
         $success = Flight::customBuildService()->updateCustomBuild($id, $data);
@@ -198,6 +202,7 @@ Flight::route('PUT ' . BASE_URL . '/custom-builds/@id', function($id) {
  * )
  */
 Flight::route('DELETE ' . BASE_URL . '/custom-builds/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     try {
         $success = Flight::customBuildService()->deleteCustomBuild($id);
         if (!$success) {

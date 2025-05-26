@@ -12,6 +12,7 @@
  * )
  */
 Flight::route('GET ' . BASE_URL . '/orders', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $orders = Flight::orderService()->getAllOrders();
     Flight::json($orders);
 });
@@ -43,6 +44,7 @@ Flight::route('GET ' . BASE_URL . '/orders', function() {
  * )
  */
 Flight::route('GET ' . BASE_URL . '/orders/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $order = Flight::orderService()->getOrderById($id);
     if (!$order) {
         Flight::json(['error' => 'Order not found'], 404);
@@ -90,6 +92,7 @@ Flight::route('GET ' . BASE_URL . '/orders/@id', function($id) {
  * )
  */
 Flight::route('POST ' . BASE_URL . '/orders', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     try {
         $orderId = Flight::orderService()->createOrder($data);
@@ -148,6 +151,7 @@ Flight::route('POST ' . BASE_URL . '/orders', function() {
  * )
  */
 Flight::route('PUT ' . BASE_URL . '/orders/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     try {
         $success = Flight::orderService()->updateOrder($id, $data);
@@ -198,6 +202,7 @@ Flight::route('PUT ' . BASE_URL . '/orders/@id', function($id) {
  * )
  */
 Flight::route('DELETE ' . BASE_URL . '/orders/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     try {
         $success = Flight::orderService()->deleteOrder($id);
         if (!$success) {
