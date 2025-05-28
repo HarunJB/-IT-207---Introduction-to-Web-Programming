@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   app.route({
     view: "home",
-    load: "pages/home.html",
+    load: "tpl/home.html",
     onCreate: function() { 
       console.log("Home page created");
     },
@@ -18,7 +18,7 @@ $(document).ready(function() {
   
   app.route({
     view: "products",
-    load: "pages/products.html",
+    load: "tpl/products.html",
     onCreate: function() {
       console.log("Products page created");
     },
@@ -29,7 +29,7 @@ $(document).ready(function() {
   
   app.route({
     view: "deals",
-    load: "pages/deals.html",
+    load: "tpl/deals.html",
     onCreate: function() {
       console.log("Deals page created");
     },
@@ -40,7 +40,7 @@ $(document).ready(function() {
   
   app.route({
     view: "build-your-pc",
-    load: "pages/build-your-pc.html",
+    load: "tpl/build-your-pc.html",
     onCreate: function() {
       console.log("Build your pc page created");
     },
@@ -51,7 +51,7 @@ $(document).ready(function() {
   
   app.route({
     view: "support",
-    load: "pages/support.html",
+    load: "tpl/support.html",
     onCreate: function() {
       console.log("Support page created");
     },
@@ -61,30 +61,8 @@ $(document).ready(function() {
   });
 
   app.route({
-    view: "signup",
-    load: "pages/sign-up.html",
-    onCreate: function() {
-      console.log("Signup page created");
-    },
-    onReady: function() {
-      console.log("Signup page ready");
-    }
-  });
-
-  app.route({
-    view: "login",
-    load: "pages/login.html",
-    onCreate: function() {
-      console.log("Login page created");
-    },
-    onReady: function() {
-      console.log("Login page ready");
-    }
-  });
-
-  app.route({
     view: "cart",
-    load: "pages/shopping-cart.html",
+    load: "tpl/shopping-cart.html",
     onCreate: function() {
       console.log("Cart page created");
       if (typeof initializeCart === 'function') {
@@ -95,6 +73,27 @@ $(document).ready(function() {
       console.log("Cart page ready");
       if (typeof updateCartDisplay === 'function') {
         updateCartDisplay();
+      }
+    }
+  });
+
+  app.route({
+    view: "admin",
+    load: "tpl/admin.html",
+    onCreate: function() {
+      console.log("Admin page created");
+      
+      const user = Utils.getCurrentUser();
+      if (!user || user.is_admin != 1) {
+        window.location.hash = "home";
+        Utils.showAlert('danger', 'Access denied. Admin privileges required.');
+        return;
+      }
+    },
+    onReady: function() {
+      console.log("Admin page ready");
+      if (typeof AdminService !== 'undefined') {
+        AdminService.init();
       }
     }
   });

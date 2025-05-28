@@ -12,6 +12,7 @@
  * )
  */
 Flight::route('GET ' . BASE_URL . '/users', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $users = Flight::userService()->getAllUsers();
     foreach ($users as &$user) {
         if (isset($user['password_hash'])) {
@@ -48,6 +49,7 @@ Flight::route('GET ' . BASE_URL . '/users', function() {
  * )
  */
 Flight::route('GET ' . BASE_URL . '/users/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $user = Flight::userService()->getUserById($id);
     if (!$user) {
         Flight::json(['error' => 'User not found'], 404);
@@ -100,6 +102,7 @@ Flight::route('GET ' . BASE_URL . '/users/@id', function($id) {
  * )
  */
 Flight::route('POST ' . BASE_URL . '/users', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     try {
         $userId = Flight::userService()->createUser($data);
@@ -164,6 +167,7 @@ Flight::route('POST ' . BASE_URL . '/users', function() {
  * )
  */
 Flight::route('PUT ' . BASE_URL . '/users/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     try {
         $success = Flight::userService()->updateUser($id, $data);
@@ -217,6 +221,7 @@ Flight::route('PUT ' . BASE_URL . '/users/@id', function($id) {
  * )
  */
 Flight::route('DELETE ' . BASE_URL . '/users/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     try {
         $success = Flight::userService()->deleteUser($id);
         if (!$success) {

@@ -12,6 +12,7 @@
  * )
  */
 Flight::route('GET ' . BASE_URL . '/products', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN, Roles::USER);
     $products = Flight::productService()->getAllProducts();
     Flight::json($products);
 });
@@ -43,6 +44,7 @@ Flight::route('GET ' . BASE_URL . '/products', function() {
  * )
  */
 Flight::route('GET ' . BASE_URL . '/products/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $product = Flight::productService()->getProductById($id);
     if (!$product) {
         Flight::json(['error' => 'Product not found'], 404);
@@ -90,6 +92,7 @@ Flight::route('GET ' . BASE_URL . '/products/@id', function($id) {
  * )
  */
 Flight::route('POST ' . BASE_URL . '/products', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     try {
         $productId = Flight::productService()->createProduct($data);
@@ -149,6 +152,7 @@ Flight::route('POST ' . BASE_URL . '/products', function() {
  * )
  */
 Flight::route('PUT ' . BASE_URL . '/products/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     try {
         $success = Flight::productService()->updateProduct($id, $data);
@@ -199,6 +203,7 @@ Flight::route('PUT ' . BASE_URL . '/products/@id', function($id) {
  * )
  */
 Flight::route('DELETE ' . BASE_URL . '/products/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     try {
         $success = Flight::productService()->deleteProduct($id);
         if (!$success) {

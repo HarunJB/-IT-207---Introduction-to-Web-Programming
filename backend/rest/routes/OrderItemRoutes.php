@@ -12,6 +12,7 @@
  * )
  */
 Flight::route('GET ' . BASE_URL . '/order-items', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $items = Flight::orderItemService()->getAllOrderItems();
     Flight::json($items);
 });
@@ -43,6 +44,7 @@ Flight::route('GET ' . BASE_URL . '/order-items', function() {
  * )
  */
 Flight::route('GET ' . BASE_URL . '/order-items/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $item = Flight::orderItemService()->getOrderItemById($id);
     if (!$item) {
         Flight::json(['error' => 'Order item not found'], 404);
@@ -89,6 +91,7 @@ Flight::route('GET ' . BASE_URL . '/order-items/@id', function($id) {
  * )
  */
 Flight::route('POST ' . BASE_URL . '/order-items', function() {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     try {
         $itemId = Flight::orderItemService()->createOrderItem($data);
@@ -148,6 +151,7 @@ Flight::route('POST ' . BASE_URL . '/order-items', function() {
  * )
  */
 Flight::route('PUT ' . BASE_URL . '/order-items/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     $data = Flight::request()->data->getData();
     try {
         $success = Flight::orderItemService()->updateOrderItem($id, $data);
@@ -198,6 +202,7 @@ Flight::route('PUT ' . BASE_URL . '/order-items/@id', function($id) {
  * )
  */
 Flight::route('DELETE ' . BASE_URL . '/order-items/@id', function($id) {
+    Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
     try {
         $success = Flight::orderItemService()->deleteOrderItem($id);
         if (!$success) {

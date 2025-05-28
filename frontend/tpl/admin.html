@@ -1,0 +1,109 @@
+<section class="sub-hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1>ADMIN PANEL</h1>
+        <p class="sub-hero-text">Manage your PC MASTER store</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="admin-dashboard">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mb-4">
+        <div class="admin-card">
+          <div class="admin-card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="admin-card-content">
+            <h3>Users</h3>
+            <p>Manage user accounts and permissions</p>
+            <button class="btn btn-primary" onclick="AdminService.loadUsersManagement()">Manage Users</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3 mb-4">
+        <div class="admin-card">
+          <div class="admin-card-icon">
+            <i class="fas fa-box"></i>
+          </div>
+          <div class="admin-card-content">
+            <h3>Products</h3>
+            <p>Add, edit, and manage products</p>
+            <button class="btn btn-primary" onclick="AdminService.loadProductsManagement()">Manage Products</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3 mb-4">
+        <div class="admin-card">
+          <div class="admin-card-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <div class="admin-card-content">
+            <h3>Orders</h3>
+            <p>View and manage customer orders</p>
+            <button class="btn btn-primary" onclick="AdminService.loadOrdersManagement()">Manage Orders</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3 mb-4">
+        <div class="admin-card">
+          <div class="admin-card-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <div class="admin-card-content">
+            <h3>Custom Builds</h3>
+            <p>Manage custom PC configurations</p>
+            <button class="btn btn-primary" onclick="AdminService.loadBuildsManagement()">Manage Builds</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="admin-content" id="adminContent">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="admin-content-area">
+          <h3><i class="fas fa-tachometer-alt me-2"></i>Admin Dashboard</h3>
+          <p>Welcome to the PC MASTER Admin Panel. Select a category above to start managing your store.</p>
+          
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="alert alert-info">
+                <h5><i class="fas fa-info-circle me-2"></i>Quick Actions</h5>
+                <ul class="mb-0">
+                  <li>Manage user accounts and permissions</li>
+                  <li>Add and edit product inventory</li>
+                  <li>Monitor and update order statuses</li>
+                  <li>Review custom build configurations</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="alert alert-success">
+                <h5><i class="fas fa-chart-line me-2"></i>System Status</h5>
+                <p class="mb-0">All systems operational. Database connected successfully.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+$(document).ready(function() {
+  if (typeof AdminService !== 'undefined') {
+    AdminService.init();
+  }
+});
+</script>
