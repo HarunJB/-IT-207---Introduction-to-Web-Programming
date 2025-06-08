@@ -7,7 +7,6 @@ class UserDao extends BaseDao {
     }
     
     public function createUser($userData) {
-        // Convert camelCase to snake_case and filter out duplicates
         $userData = array_combine(
             array_map(function($key) {
                 return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $key));
@@ -15,7 +14,6 @@ class UserDao extends BaseDao {
             array_values($userData)
         );
         
-        // Filter out duplicate fields, keeping only snake_case versions
         $filteredData = [];
         foreach ($userData as $key => $value) {
             if (!in_array($key, ['firstName', 'lastName', 'name'])) {
@@ -23,7 +21,13 @@ class UserDao extends BaseDao {
             }
         }
         
-        return $this->insert($filteredData);
+        $result = $this->insert($filteredData);
+        
+        if ($result) {
+            return $this->connection->lastInsertId();
+        }
+        
+        return false;
     }
     
     public function getAllUsers() {
@@ -62,7 +66,20 @@ class UserDao extends BaseDao {
     }
     
     public function deleteUser($userId) {
-        return $this->delete($userId);
+    try {
+        $this->connection->beginTransaction();
+        
+        $this->connection->exec("DELETE FROM custom_builds WHERE user_id = $userId");
+        $this->connection->exec("DELETE FROM orders WHERE user_id = $userId");
+        
+        $result = $this->delete($userId);
+        
+        $this->connection->commit();
+        return $result;
+    } catch (Exception $e) {
+        $this->connection->rollBack();
+        throw new Exception("Cannot delete user: " . $e->getMessage());
     }
+}
 }
 ?>

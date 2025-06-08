@@ -21,6 +21,19 @@ var AuthService = {
   },
 
   login: function (entity) {
+
+    $('.alert-danger').remove();
+    
+    if (!entity.email || !entity.password) {
+        this.showError('Please fill in both email and password');
+        return;
+    }
+    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(entity.email)) {
+        this.showError('Please enter a valid email address');
+        return;
+    }
+
     $.ajax({
       url: Constants.PROJECT_BASE_URL + "auth/login",
       type: "POST",

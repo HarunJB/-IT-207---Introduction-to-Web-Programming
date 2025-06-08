@@ -70,7 +70,7 @@ class OrderService {
         $result = $this->dao->createOrder($orderData);
         
         if ($result) {
-            return $this->dao->connection->lastInsertId();
+            return $this->dao->getLastInsertId();
         }
         
         return false;

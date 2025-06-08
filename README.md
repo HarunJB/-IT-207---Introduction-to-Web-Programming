@@ -9,3 +9,7 @@ In this milestone, I built the database system for my project using MySQL with m
 Milestone 3:
 
 With this milestone, I have completed the backend of my project. I implemented the business logic, added the presentation layer, and generated a visual API documentation page using Swagger (http://localhost/Web%20Programming/backend/public/v1/docs/). This has been the most challenging milestone so far due to the number of components that needed to be added. It also served as a great way to visually represent the application's processing logic. This has definetly improved my understanding of the backend structure.
+
+Milestone 5:
+
+In this milestone although I didn't deploy the website I made sure that the website is fullstack so the frontend and the backend are connected. Also I've added validation to key forms. 

@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 require 'vendor/autoload.php'; 
-
+require 'data/Roles.php';
 require 'rest/services/AuthService.php';
 require 'rest/services/CustomBuildService.php';
 require 'rest/services/OrderItemService.php';
@@ -63,13 +63,30 @@ Flight::before('start', function () {
     }
 
     try {
-        $headers = getallheaders();
         $token = null;
         
-        if (isset($headers['Authorization'])) {
-            $token = str_replace('Bearer ', '', $headers['Authorization']);
-        } elseif (isset($headers['authorization'])) {
-            $token = str_replace('Bearer ', '', $headers['authorization']);
+        if (function_exists('getallheaders')) {
+            $headers = getallheaders();
+            if (isset($headers['Authorization'])) {
+                $token = str_replace('Bearer ', '', $headers['Authorization']);
+            } elseif (isset($headers['authorization'])) {
+                $token = str_replace('Bearer ', '', $headers['authorization']);
+            }
+        }
+        
+        if (!$token && isset($_SERVER['HTTP_AUTHORIZATION'])) {
+            $token = str_replace('Bearer ', '', $_SERVER['HTTP_AUTHORIZATION']);
+        }
+        
+        if (!$token && isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION'])) {
+            $token = str_replace('Bearer ', '', $_SERVER['REDIRECT_HTTP_AUTHORIZATION']);
+        }
+        
+        if (!$token) {
+            $authHeader = apache_request_headers()['Authorization'] ?? null;
+            if ($authHeader) {
+                $token = str_replace('Bearer ', '', $authHeader);
+            }
         }
 
         if (!$token) {

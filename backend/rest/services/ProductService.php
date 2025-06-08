@@ -47,7 +47,7 @@ class ProductService {
         
         $result = $this->dao->createProduct($productData);
         if ($result) {
-            return $this->dao->connection->lastInsertId();
+            return $this->dao->getLastInsertId();
         }
         
         return false;

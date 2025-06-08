@@ -97,6 +97,20 @@ $(document).ready(function() {
       }
     }
   });
+
+  app.route({
+  view: "cart",
+  load: "tpl/shopping-cart.html",
+  onCreate: function() {
+    console.log("Cart page created");
+  },
+  onReady: function() {
+    console.log("Cart page ready");
+    if (typeof displayCartItems === 'function') {
+      displayCartItems();
+    }
+  }
+});
   
   app.run();
 });

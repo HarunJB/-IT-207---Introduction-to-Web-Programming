@@ -20,19 +20,41 @@ class AuthMiddleware {
         }
     }
 
-    public function authorizeRole($requiredRole) {
-        $user = Flight::get('user');
-        if ($user->role !== $requiredRole) {
-            Flight::halt(403, 'Access denied: insufficient privileges');
+public function authorizeRole($requiredRole) {
+    $user = Flight::get('user');
+    
+    error_log("Checking authorization - User: " . json_encode($user));
+    error_log("Required role: " . $requiredRole);
+    
+    if ($requiredRole === 'admin' || $requiredRole === Roles::ADMIN) {
+        if (!isset($user->is_admin) || $user->is_admin != 1) {
+            error_log("Access denied: User is not admin");
+            Flight::halt(403, 'Access denied: admin privileges required');
         }
     }
 
-    public function authorizeRoles($roles) {
-        $user = Flight::get('user');
-        if (!in_array($user->role, $roles)) {
-            Flight::halt(403, 'Forbidden: role not allowed');
+}
+
+public function authorizeRoles($roles) {
+    $user = Flight::get('user');
+    
+    $hasAccess = false;
+    foreach ($roles as $role) {
+        if (($role === 'admin' || $role === Roles::ADMIN) && 
+            isset($user->is_admin) && $user->is_admin == 1) {
+            $hasAccess = true;
+            break;
+        }
+        if ($role === 'user' || $role === Roles::USER) {
+            $hasAccess = true; 
+            break;
         }
     }
+    
+    if (!$hasAccess) {
+        Flight::halt(403, 'Forbidden: insufficient privileges');
+    }
+}
 
     function authorizePermission($permission) {
         $user = Flight::get('user');
