@@ -29,70 +29,64 @@ var UserService = {
     });
   },
 
-  getAllUsers: function() {
+getAllUsers: function() {
     return new Promise((resolve, reject) => {
       $.ajax({
         url: Constants.PROJECT_BASE_URL + "users",
         type: "GET",
-        headers: {
-          'Authorization': 'Bearer ' + localStorage.getItem("user_token")
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("user_token"));
         },
-        success: function(result) {
-          resolve(result);
+        success: function (users) {
+          console.log('Users loaded successfully:', users);
+          resolve({ success: true, data: users });
         },
-        error: function(xhr, status, error) {
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          console.error('Error fetching users:', XMLHttpRequest.responseText);
           reject({
-            message: error,
-            status: xhr.status,
-            response: xhr.responseJSON
+            success: false,
+            error: XMLHttpRequest.responseText || 'Error loading users'
           });
         }
       });
     });
   },
 
-  init: function() {
+init: function() {
     var token = localStorage.getItem("user_token");
     if (token) {
       $("#logout-btn").show();
       
-      $.ajax({
-        url: Constants.PROJECT_BASE_URL + "users/me",
-        type: "GET",
-        headers: {
-          'Authorization': 'Bearer ' + token
-        },
-        success: function(result) {
-          if (result.success && result.data && (result.data.is_admin === 1)) {
-            $('.admin-link').show();
-            $('#admin').show();
-            $('#admin').load('tpl/admin.html', function() {
-              AdminService.init();
-            });
-          } else {
-            $('.admin-link').hide();
-            $('#admin').hide();
-          }
-        },
-        error: function() {
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        console.log('User from JWT:', payload.user);
+        
+        if (payload.user && payload.user.is_admin == 1) {
+          $('.admin-link').show();
+          $('#admin').show();
+          $('#admin').load('tpl/admin.html', function() {
+            AdminService.init();
+          });
+        } else {
           $('.admin-link').hide();
           $('#admin').hide();
         }
-      });
+      } catch (e) {
+        console.error('Error decoding JWT:', e);
+        $('.admin-link').hide();
+        $('#admin').hide();
+      }
     } else {
-      // Hide logout button and admin menu if not logged in
       $("#logout-btn").hide();
       $('.admin-link').hide();
       $('#admin').hide();
     }
 
-    // Add logout button click handler
     $("#logout-btn").off('click').on('click', function(e) {
       e.preventDefault();
       UserService.logout();
     });
 
-    // Initialize login form if it exists
     if (document.getElementById('login-form')) {
       $("#login-form").validate({
         submitHandler: function (form) {
@@ -133,24 +127,6 @@ var UserService = {
       },
       error: function (XMLHttpRequest, textStatus, errorThrown) {
         toastr.error(XMLHttpRequest?.responseText ? XMLHttpRequest.responseText : 'Login Error');
-      },
-    });
-  },
-
-  getAllUsers: function() {
-    $.ajax({
-      url: Constants.PROJECT_BASE_URL + "users",
-      type: "GET",
-      beforeSend: function (xhr) {
-        xhr.setRequestHeader("Authorization", localStorage.getItem("user_token"));
-      },
-      success: function (users) {
-        console.log(users);
-        AdminService.displayUsersTable(users);
-      },
-      error: function (XMLHttpRequest, textStatus, errorThrown) {
-        console.error('Error fetching users:', XMLHttpRequest.responseText);
-        alert('Error loading users');
       },
     });
   },

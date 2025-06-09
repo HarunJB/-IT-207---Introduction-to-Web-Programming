@@ -5,9 +5,11 @@ class BaseDao {
     
     protected $connection;
     private $table_name;
+    protected $primary_key;
 
-    public function __construct($table_name) {
+    public function __construct($table_name, $primary_key = 'id') {
         $this->table_name = $table_name;
+        $this->primary_key = $primary_key;
 
         try {
             $this->connection = new PDO(
@@ -33,7 +35,7 @@ class BaseDao {
 
     protected function query_unique($query, $params) {
         $results = $this->query($query, $params);
-        return reset($result);
+        return reset($results);
     }
     
     public function getAll() {
@@ -55,6 +57,10 @@ class BaseDao {
         $sql = "INSERT INTO " . $this->table_name . " ($columns) VALUES ($placeholders)";
         $stmt = $this->connection->prepare($sql);
         return $stmt->execute($data);
+    }
+
+    public function getLastInsertId() {
+        return $this->connection->lastInsertId();
     }
     
     public function update($id, $data) {

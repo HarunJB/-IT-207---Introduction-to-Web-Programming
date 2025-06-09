@@ -19,8 +19,13 @@ class UserService {
             throw new Exception('Password is required');
         }
         
-        if (!isset($userData['name']) || empty($userData['name'])) {
-            throw new Exception('Name is required');
+
+        if (!isset($userData['first_name']) || empty($userData['first_name'])) {
+            throw new Exception('First name is required');
+        }
+    
+        if (!isset($userData['last_name']) || empty($userData['last_name'])) {
+            throw new Exception('Last name is required');
         }
 
         if (!filter_var($userData['email'], FILTER_VALIDATE_EMAIL)) {
@@ -43,12 +48,9 @@ class UserService {
             $userData['is_admin'] = 0;
         }
 
-        $result = $this->dao->createUser($userData);
-        if ($result) {
-            return $this->dao->connection->lastInsertId();
-        }
-        
-        return false;
+        $userId = $this->dao->createUser($userData);
+    
+        return $userId;
     }
 
     public function getAllUsers() {
